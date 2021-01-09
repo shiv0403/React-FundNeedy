@@ -6,7 +6,6 @@ import Needies from "./Needies";
 import Footer from "./Footer";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import FirmFund from "./FirmFund";
-import Success from "./Success";
 
 function App() {
   return (
@@ -16,8 +15,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Showcase} />
           <Route path="/needies" component={Needies} />
-          <Route path="/firmname" component={FirmFund} />
-          <Route path="/firmname/success" component={Success} />
+          <Route path="/firmname" component={FirmFund}
         </Switch>
         <Footer />
       </Router>

@@ -30,7 +30,7 @@ function Needy() {
         <p>
           <strong>Fund Req: $2000</strong>
         </p>
-        <button onClick={handleFund}>Fund</button>
+        <button>Fund</button>
       </div>
     </div>
   );

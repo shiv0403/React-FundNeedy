@@ -17,7 +17,7 @@ function App() {
           <Route exact path="/" component={Showcase} />
           <Route path="/needies" component={Needies} />
           <Route path="/firmname" component={FirmFund} />
-          <Route path="/firmname/success" component={Success} />
+          <Route path="/firmname/success" component={Success}
         </Switch>
         <Footer />
       </Router>
