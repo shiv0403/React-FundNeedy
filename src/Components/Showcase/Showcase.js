@@ -1,13 +1,23 @@
 import React from "react";
 import "./Showcase.css";
 import { useHistory } from "react-router-dom";
+import { useAuth } from "../../AuthContext";
+import { data } from "../quotes/quotesData";
+import Quote from "../quotes/Quote";
 
 function Showcase() {
   const History = useHistory();
 
+  const { currentUser } = useAuth();
+
   const handleNeedies = (e) => {
     e.preventDefault();
     History.push("/needies");
+  };
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+    History.push("/signup");
   };
 
   return (
@@ -15,9 +25,11 @@ function Showcase() {
       <div className="showcase_overlay"></div>
       <div className="showcase_main">
         <h1>Today is your opportunity to build the tomorrow of someone.</h1>
-        <p>Get Started</p>
-        <button>Log In</button>
-        <button>Sign Up</button>
+        {currentUser ? (
+          <button onClick={handleNeedies}>See the Needies</button>
+        ) : (
+          <button onClick={handleSignup}>Get Started</button>
+        )}
       </div>
       <div className="showcase_needies">
         <h1>We need Funds!</h1>
@@ -48,6 +60,11 @@ function Showcase() {
           />
         </div>
         <button onClick={handleNeedies}>See the Needies</button>
+      </div>
+      <div className="showcase_quotes">
+        {data.map((cur) => {
+          return <Quote name={cur.name} url={cur.url} quote={cur.quote} />;
+        })}
       </div>
     </div>
   );
